@@ -20,9 +20,9 @@ return new class extends Migration
              $table->string('alamat');
              //  $table->foreignId('prodi_id')->constrained(); // relasi ke kolom id pada tabel prodis
              $table->unsignedBigInteger('prodi_id');
-             $table->foreignId('prodi_id')->references('id')->on('prodis');
-             
-             $table->string('url_foto'); 
+             $table->foreign('prodi_id')->references('id')->on('prodi');
+
+             $table->string('url_foto');
             $table->timestamps();
         });
     }
