@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fakultas;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Unique;
 
 class ProdiController extends Controller
 {
@@ -24,7 +26,7 @@ class ProdiController extends Controller
     public function create()
     {
         $fakultas = Fakultas::all();
-        return view('prodi.create')->with('fakultas', $fakultas);
+        return view('prodi.create')->with('fakultas',$fakultas);
     }
 
     /**
@@ -32,14 +34,19 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        $val = $request->validate([
-            'nama' => "required|unique:fakultas",
+         $val = $request->validate([
+            'nama' => "required|unique:prodi",
             'singkatan' => "required|max:4",
-            'fakultas_id' => "required0"
-        ]);
+            'fakultas_id' => "required"
+    ]);
+    
+        Prodi::create($val);
 
-        // simpan ke tabel prodis
-    }
+    return redirect()->route('prodi.index')->with('success',$val['nama'].' Berhasil disimpan');
+}
+
+
+    
 
     /**
      * Display the specified resource.
