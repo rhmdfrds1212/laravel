@@ -28,7 +28,29 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $val = $request->validate([
+            'npm' => "required|unique:mahasiswas",
+            'nama' => "required",
+            'tempat_lahir' => "required",
+            'tanggal_lahir' => "required",
+            'alamat' => "required",
+            'url_foto' => "required|file|mines:png,jpg|max:5000",
+            'prodi_id' => "required"
+        ]);
+        
+        // ektensi file yg diupload
+        $ext = 
+        $request->url_foto->getClientOriginalExtension();
+        // rename misal : npm.extensi 2226240074.png
+        $val['url_foto'] = $request->npm.",".$ext;
+        // upload ke dalam folder public/foto
+        $request->url_foto->move('foto',$val['url_foto']);
+
+        //simpan ke tabel mahasiswas
+        Mahasiswa::create($val);
+
+        // redirect ke halaman list mahasiswa
+        return redirect()->route('mahasiswa.index')->with('success', $val['nama'],'berhasil disimpan');
     }
 
     /**
