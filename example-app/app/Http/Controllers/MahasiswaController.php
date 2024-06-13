@@ -14,9 +14,15 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswas = Mahasiswa::all(); // select * from mahasiswa
+        if(auth()->user()->role == 'D'){
+            $mahasiswa  = Mahasiswa::where('user_id', auth()->user()->id)->get();
+            // select * from mahasiswas where user_id = 1
+        } else {
+            $mahasiswa = Mahasiswa::all(); // select * from mahasiswa
+        }
+
         return view('Mahasiswa.index')
-                ->with('mahasiswas', $mahasiswas);
+                ->with('mahasiswa', $mahasiswa);
     }
 
     /**
@@ -96,6 +102,10 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
+        if(auth()->user()->cannot('delete', $mahasiswa)){
+            abort(403);
+        }
+    
         if($request->url_foto){ //jika ada file foto yang di lampirkan
         
             
@@ -140,7 +150,7 @@ class MahasiswaController extends Controller
                
            Mahasiswa::where('id', $mahasiswa['id'])->update($val);
     
-           return redirect()->route('mahasiswa.index')->with('success',$val['nama'].' berhasil disimpan');
+           return redirect()->route('mahasiswa.index')->with('success',$val['nama'],' berhasil disimpan');
         }
     
 
@@ -149,6 +159,9 @@ class MahasiswaController extends Controller
      */
     public function destroy(Mahasiswa $mahasiswa)
     {
+        if (auth()->user()->cannot('delete', $mahasiswa)) {
+            abort(403);
+        }
         // dd($mahasiswa);
         File::delete('foto/'. $mahasiswa['url_foto']);
         $mahasiswa->delete(); // hapus data  mahasiswa
