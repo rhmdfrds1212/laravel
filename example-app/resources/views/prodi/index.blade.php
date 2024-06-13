@@ -13,7 +13,9 @@
                     List data fakultas <code></code>
                   </p>
                   {{-- tombol tambah --}}
+                  @can('create', App\Prodi::class)
                   <a href="{{route('prodi.create')}}" class="btn btn-rounded btn-primary">Tambah</a>
+                  @endcan
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
