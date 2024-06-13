@@ -30,7 +30,10 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request);
+       if ($request->user()->cannot('create',Fakultas::class)){
+        abort(403);
+       }
+        // dd($request);
        // validasi form
        $val = $request->validate([
         'nama'=> "required|unique:fakultas",

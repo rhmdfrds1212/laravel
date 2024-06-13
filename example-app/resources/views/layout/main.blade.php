@@ -141,7 +141,7 @@
           <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back, {{auth()->user()->name}}</h4>
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item">
-              <h4 class="mb-0 font-weight-bold d-none d-xl-block">Mar 12, 2019 - Apr 10, 2019</h4>
+              <h4 class="mb-0 font-weight-bold d-none d-xl-block">Jun 13, 2024- Jul 10, 2024</h4>
             </li>
             <li class="nav-item dropdown mr-1">
               <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
@@ -155,34 +155,34 @@
                       <img src="{{ url('images/faces/face4.jpg')}}" alt="image" class="profile-pic">
                   </div>
                   <div class="preview-item-content flex-grow">
-                    <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+                    <h6 class="preview-subject ellipsis font-weight-normal">Gilang
                     </h6>
                     <p class="font-weight-light small-text text-muted mb-0">
-                      The meeting is cancelled
+                      Maaf tidak dapat ikut meeting
                     </p>
                   </div>
                 </a>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                      <img src="{{ url('images/faces/face2.jpg') }}" alt="image" class="profile-pic">
+                      <img src="{{ url('images/faces/face2.png') }}" alt="image" class="profile-pic">
                   </div>
                   <div class="preview-item-content flex-grow">
-                    <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+                    <h6 class="preview-subject ellipsis font-weight-normal">Riski
                     </h6>
                     <p class="font-weight-light small-text text-muted mb-0">
-                      New product launch
+                      produk baru kamu bagus
                     </p>
                   </div>
-                </a>
+                </a>  
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
                       <img src="{{ url('images/faces/face3.jpg') }}" alt="image" class="profile-pic">
                   </div>
                   <div class="preview-item-content flex-grow">
-                    <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
+                    <h6 class="preview-subject ellipsis font-weight-normal"> Abiyu
                     </h6>
                     <p class="font-weight-light small-text text-muted mb-0">
-                      Upcoming board meeting
+                      tunggu aku meeting 
                     </p>
                   </div>
                 </a>

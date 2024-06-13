@@ -18,9 +18,9 @@ return new class extends Migration
              $table->string('tempat_lahir', 45);
              $table->date('tanggal_lahir');
              $table->string('alamat');
-             //  $table->foreignId('prodi_id')->constrained(); // relasi ke kolom id pada tabel prodis
-             $table->unsignedBigInteger('prodi_id');
-             $table->foreign('prodi_id')->references('id')->on('prodi');
+              $table->foreignId('prodi_id')->constrained(); // relasi ke kolom id pada tabel prodis
+            //  $table->unsignedBigInteger('prodi_id');
+            //  $table->foreign('prodi_id')->references('id')->on('prodi');
              
              $table->string('url_foto'); 
             $table->timestamps();
