@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout/home')
 
 @section('title','fakultas')
 
